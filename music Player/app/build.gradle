@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+android {
+    compileSdk 33
+    defaultConfig {
+        applicationId "music.saidweb.playlist.offline"
+        minSdkVersion 22
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildToolsVersion '33.0.0'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+	//noinspection GradleCompatible
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    //Media
+    //implementation 'androidx.appcompat:support-media-appcompat:1.4.2'
+    //
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    //noinspection GradleCompatible
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    //noinspection GradleCompatible
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    //noinspection GradleCompatible
+    implementation 'androidx.core:core:1.8.0'
+    implementation 'org.jetbrains:annotations:15.0'
+    implementation 'androidx.lifecycle:lifecycle-process:2.4.1'
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.1'
+    testImplementation 'junit:junit:4.13.2'
+    //noinspection GradleCompatible
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation project(':nativetemplates')
+    def lifecycle_version = "2.0.0"
+    //noinspection GradleDependency
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    //noinspection GradleDependency
+    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+    //noinspection LifecycleAnnotationProcessorWithJava8
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+    //Ad Network
+    implementation 'com.google.android.gms:play-services-ads-lite:21.2.0'
+    implementation 'com.github.saidzinani:Ads-Network-Library:1.1.2'
+
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'com.applovin:applovin-sdk:+'
+    //Media
+    implementation 'androidx.media:media:1.6.0'
+    //
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+}
